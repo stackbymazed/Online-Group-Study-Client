@@ -16,6 +16,7 @@ const CreateAssignments = () => {
         const formData = new FormData(from);
         const newFromData = Object.fromEntries(formData.entries())
         newFromData.email = user.email
+        newFromData.status = 'pending'
         console.log(newFromData);
 
         axios.post(`${import.meta.env.VITE_API_BASE_URL}/assignments`, newFromData)
