@@ -9,6 +9,8 @@ import PrivateRoute from "../Contexts/PrivateRoute";
 import CreateAssignments from "../pages/CreateAssignments/CreateAssignments";
 import MyAttemptedAssignments from "../pages/MyAttemptedAssignments/MyAttemptedAssignments";
 import Error from "../pages/Error/Error";
+import UpdateAssignment from "../pages/Assignments/UpdateAssignment";
+import ViewAssignment from "../pages/Assignments/ViewAssignment";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +54,20 @@ export const router = createBrowserRouter([
                 path: "/myAssignments",
                 element: <PrivateRoute>
                     <MyAttemptedAssignments></MyAttemptedAssignments>
+                </PrivateRoute>
+            },
+            {
+                path: "/assignments/:id",
+                loader: ({params}) => fetch(`http://localhost:3000/assignments/${params.id}`),
+                element: <PrivateRoute>
+                    <UpdateAssignment></UpdateAssignment>
+                </PrivateRoute>
+            },
+            {
+                path: "/assignments/view/:id",
+                loader: ({params}) => fetch(`http://localhost:3000/assignments/${params.id}`),
+                element: <PrivateRoute>
+                    <ViewAssignment></ViewAssignment>
                 </PrivateRoute>
             },
         ]
