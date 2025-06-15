@@ -42,7 +42,7 @@ const SignUp = () => {
                     <label className="label">Email</label>
                     <input type="email" required name='email' className="input" placeholder="Email" />
                     <label className="label">Photo Url</label>
-                    <input type="text" required name='photo' className="input" placeholder="Photo Url" />
+                    <input type="url" required name='photo' className="input" placeholder="Photo Url" />
                     <label className="input validator">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g

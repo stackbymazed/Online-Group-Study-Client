@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Contexts/AuthContext";
 
 const ViewAssignment = () => {
-  const {user} = use(AuthContext)
+  const { user } = use(AuthContext)
 
   const data = useLoaderData();
   const { _id, title, image, date, marks, difficulty, description, email } = data || {};
@@ -38,7 +38,15 @@ const ViewAssignment = () => {
     })
       .then(res => res.json())
       .then(() => {
-        alert('Dock and Note submitted successfully!');
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Dock and Note submitted successfully!",
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+
       });
 
     setShowModal(false);

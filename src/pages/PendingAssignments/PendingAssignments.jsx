@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthContext';
+import Swal from 'sweetalert2';
 
 const PendingAssignments = () => {
     const { user } = useContext(AuthContext);
@@ -47,27 +48,47 @@ const PendingAssignments = () => {
             feedback: feedback
         };
 
-        fetch(`http://localhost:3000/assignments/${selectedAssignment._id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedAssignment)
-        })
-            .then(res => res.json())
-            .then(() => {
-                alert('Marks submitted successfully!');
-                setSelectedAssignment(null);
-                document.getElementById('my_modal_5').close();
+        if (selectedAssignment.marks >= parseInt(mark) && feedback.length > 10) {
+            fetch(`http://localhost:3000/assignments/${selectedAssignment._id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedAssignment)
+            })
+                .then(res => res.json())
+                .then(() => {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Assignment mark submitted Successfully!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    setSelectedAssignment(null);
+                    document.getElementById('my_modal_5').close();
 
 
-                // Refresh the assignments
-                fetch('http://localhost:3000/assignments')
-                    .then(res => res.json())
-                    .then(data => setAssignments(data));
-                document.getElementById('my_modal_5').close();
+                    // Refresh the assignments
+                    fetch('http://localhost:3000/assignments')
+                        .then(res => res.json())
+                        .then(data => setAssignments(data));
+                    document.getElementById('my_modal_5').close();
+                });
+        }
+        else {
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: `submit the marks is less than ${selectedAssignment.marks} and  feedback minLength 10`,
+                showConfirmButton: false,
+                timer: 1500
             });
+        }
+
+
     };
+
 
     // console.log(selectedAssignment)
 
@@ -146,6 +167,7 @@ const PendingAssignments = () => {
                                 <label className="label font-semibold">Marks</label>
                                 <input
                                     type="number"
+                                    required
                                     value={mark}
                                     onChange={(e) => setMark(e.target.value)}
                                     className="input input-bordered w-full"
@@ -155,7 +177,9 @@ const PendingAssignments = () => {
                             <div className="mt-2">
                                 <label className="label font-semibold">Feedback</label>
                                 <textarea
+                                    required
                                     value={feedback}
+                                    minLength={15}
                                     onChange={(e) => setFeedback(e.target.value)}
                                     className="textarea textarea-bordered w-full"
                                     rows="3"

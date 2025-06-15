@@ -25,30 +25,41 @@ const UpdateAssignment = () => {
         console.log(newFromData);
 
 
-        
 
-        fetch(`http://localhost:3000/assignments/${_id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(newFromData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount) {
 
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Your Post Update Successfully",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-
-                    navigate("/assignments")
-                }
+        if (user.email == email) {
+            fetch(`http://localhost:3000/assignments/${_id}`, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(newFromData)
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount) {
+
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Your Post Update Successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
+                        navigate("/assignments")
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "You are not assignment owner! Can't update this assignment!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
 
     }
     return (
@@ -57,11 +68,11 @@ const UpdateAssignment = () => {
             <form className='grid grid-cols-1  mb-10 lg:px-20' onSubmit={handleSubmit}>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Title</label>
-                    <input type="text" name='title' defaultValue={title} className="input w-full h-10" placeholder="Title" />
+                    <input type="text" name='title' required defaultValue={title} className="input w-full h-10" placeholder="Title" />
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Thumbnail Image URL</label>
-                    <input type="text" name='image' defaultValue={image} className="input  w-full h-10" placeholder="Thumbnail Image URL" />
+                    <input type="url" name='image' required defaultValue={image} className="input  w-full h-10" placeholder="Thumbnail Image URL" />
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Date</label>
@@ -69,7 +80,7 @@ const UpdateAssignment = () => {
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Marks</label>
-                    <input type="text" name='marks' defaultValue={marks} className="input  w-full" placeholder="Marks" />
+                    <input type="number" name='marks' required defaultValue={marks} className="input  w-full" placeholder="Marks" />
                 </fieldset>
 
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full flex-1">
@@ -82,7 +93,7 @@ const UpdateAssignment = () => {
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full flex-1">
                     <label className="label">Description</label>
-                    <textarea name='description' defaultValue={description} className="textarea h-10 w-full" placeholder="Description"></textarea>
+                    <textarea name='description' required minLength="30" defaultValue={description} className="textarea h-10 w-full" placeholder="Description"></textarea>
                 </fieldset>
                 <input type="submit" className="btn btn-primary" value="Update Assignment" />
             </form>

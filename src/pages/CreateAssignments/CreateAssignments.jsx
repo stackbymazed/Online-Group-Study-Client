@@ -31,6 +31,7 @@ const CreateAssignments = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    from.reset()
                 }
             })
             .catch(error => {
@@ -44,11 +45,11 @@ const CreateAssignments = () => {
             <form className='grid grid-cols-1  mb-10 lg:px-20' onSubmit={handleSubmit}>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Title</label>
-                    <input type="text" name='title' className="input w-full h-10" placeholder="Title" />
+                    <input type="text" name='title' required className="input w-full h-10" placeholder="Title" />
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Thumbnail Image URL</label>
-                    <input type="text" name='image' className="input  w-full h-10" placeholder="Thumbnail Image URL" />
+                    <input type="url" name='image' required className="input  w-full h-10" placeholder="Thumbnail Image URL" />
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label"> Date </label>
@@ -56,7 +57,7 @@ const CreateAssignments = () => {
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Marks</label>
-                    <input type="text" name='marks' className="input  w-full" placeholder="Marks" />
+                    <input type="number" required name='marks' className="input  w-full" placeholder="Marks" />
                 </fieldset>
 
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full flex-1">
@@ -69,7 +70,7 @@ const CreateAssignments = () => {
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full flex-1">
                     <label className="label">Description</label>
-                    <textarea name='description' className="textarea h-10 w-full" placeholder="Description"></textarea>
+                    <textarea name='description' required minLength="30" className="textarea h-10 w-full" placeholder="Description"></textarea>
                 </fieldset>
                 <input type="submit" className="btn btn-primary" value="Add Assignment" />
             </form>
