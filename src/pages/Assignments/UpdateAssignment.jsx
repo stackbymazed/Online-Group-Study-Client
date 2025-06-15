@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const UpdateAssignment = () => {
     const singleAssignmentData = useLoaderData()
-    console.log(singleAssignmentData);
+    // console.log(singleAssignmentData);
 
 
     const navigate = useNavigate()
@@ -22,7 +22,7 @@ const UpdateAssignment = () => {
         const formData = new FormData(from);
         const newFromData = Object.fromEntries(formData.entries())
         newFromData.email = user.email
-        console.log(newFromData);
+        // console.log(newFromData);
 
 
 

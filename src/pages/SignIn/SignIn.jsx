@@ -9,7 +9,7 @@ const SignIn = () => {
     const { userSignin } = use(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location)
+    // console.log(location)
 
     const handleSignIn = (e) => {
         e.preventDefault()
@@ -34,7 +34,7 @@ const SignIn = () => {
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                console.log(errorMessage);
+                // console.log(errorMessage);
             });
     }
     return (
@@ -44,6 +44,7 @@ const SignIn = () => {
                 <form onSubmit={handleSignIn} className="fieldset">
                     <label className="label">Email</label>
                     <input type="email" name='email' required className="input" placeholder="Email" />
+                    <label className="label">Password</label>
                     <label className="input validator">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g

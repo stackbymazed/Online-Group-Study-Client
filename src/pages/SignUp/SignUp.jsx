@@ -19,7 +19,7 @@ const SignUp = () => {
         // create user with email and password
         createUser(email, password)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -29,7 +29,7 @@ const SignUp = () => {
                 });
             })
             .catch(error => {
-                console.log(error.message);
+                // console.log(error.message);
             })
     }
     return (
@@ -43,6 +43,7 @@ const SignUp = () => {
                     <input type="email" required name='email' className="input" placeholder="Email" />
                     <label className="label">Photo Url</label>
                     <input type="url" required name='photo' className="input" placeholder="Photo Url" />
+                     <label className="label">Password</label>
                     <label className="input validator">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g
@@ -58,6 +59,7 @@ const SignUp = () => {
                                 <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                             </g>
                         </svg>
+                        
                         <input
                             type="password"
                             required

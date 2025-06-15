@@ -17,7 +17,7 @@ const Assignments = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log(searchText)
+        // console.log(searchText)
 
     }
 

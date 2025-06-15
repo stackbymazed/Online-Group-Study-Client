@@ -18,11 +18,11 @@ const CreateAssignments = () => {
         newFromData.email = user.email
         newFromData.status = 'pending'
         newFromData.submittedBy = user.email
-        console.log(newFromData);
+        // console.log(newFromData);
 
         axios.post(`${import.meta.env.VITE_API_BASE_URL}/assignments`, newFromData)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.insertedId) {
                     Swal.fire({
                         position: "top-end",
@@ -35,7 +35,7 @@ const CreateAssignments = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
 
     }

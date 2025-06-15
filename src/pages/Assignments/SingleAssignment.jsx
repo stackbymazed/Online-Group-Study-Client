@@ -18,7 +18,7 @@ const SingleAssignment = ({ singleAssignmentData, setAssignments, assignments })
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-            console.log(result.isConfirmed)
+            // console.log(result.isConfirmed)
             if (result.isConfirmed) {
                 if (user?.email == email) {
                     fetch(`http://localhost:3000/assignments/${id}`, {
@@ -26,7 +26,7 @@ const SingleAssignment = ({ singleAssignmentData, setAssignments, assignments })
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data.deletedCount)
+                            // console.log(data.deletedCount)
                             if (data.deletedCount) {
                                 Swal.fire({
                                     position: "top-end",
