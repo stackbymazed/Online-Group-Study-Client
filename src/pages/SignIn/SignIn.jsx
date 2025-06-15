@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import GoogleSignUp from '../../Utilitis/GoogleSignUp';
 import Swal from 'sweetalert2';
@@ -8,6 +8,8 @@ const SignIn = () => {
 
     const { userSignin } = use(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
 
     const handleSignIn = (e) => {
         e.preventDefault()
@@ -28,7 +30,7 @@ const SignIn = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate("/")
+                navigate(`${location.state ? location.state : '/'}`)
             })
             .catch((error) => {
                 const errorMessage = error.message;
