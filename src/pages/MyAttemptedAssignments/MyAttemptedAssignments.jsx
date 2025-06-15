@@ -7,10 +7,15 @@ const MyAttemptedAssignments = () => {
     const [assignments, setAssignments] = useState([]);
     const [myAssignments, setMyAssignments] = useState([]);
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch('http://localhost:3000/assignments')
             .then(res => res.json())
-            .then(data => setAssignments(data));
+            .then(data => {
+                setAssignments(data)
+                setLoading(false)
+            });
     }, []);
 
     useEffect(() => {
@@ -18,6 +23,14 @@ const MyAttemptedAssignments = () => {
         setMyAssignments(filtered);
     }, [assignments, userEmail]);
 
+
+    if (loading) {
+        return <div className="text-center py-10">
+            <span className="loading loading-spinner text-primary"></span>
+            <span className="loading loading-spinner text-primary"></span>
+            <span className="loading loading-spinner text-primary"></span>
+        </div>
+    }
     return (
         <div className="p-4">
             <h2 className="text-2xl font-semibold mb-4 flex justify-center items-center">My Submitted Assignments</h2>

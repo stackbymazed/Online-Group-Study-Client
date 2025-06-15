@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import React, { use, useState } from "react";
+import { Navigate, useLoaderData } from "react-router";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const ViewAssignment = () => {
+  const {user} = use(AuthContext)
 
   const data = useLoaderData();
-  const { _id,title,image,date,marks,difficulty,description,email} = data || {};
+  const { _id, title, image, date, marks, difficulty, description, email } = data || {};
 
 
   const [showModal, setShowModal] = useState(false);
@@ -13,8 +16,31 @@ const ViewAssignment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const submissionData = {assignmentId: _id,docLink,note,status: "pending",submittedBy: email};
-    console.log("Submitted Data:", submissionData);
+    // const submissionData = { assignmentId: _id, docLink, note, status: "pending", submittedBy: email };
+    // console.log("Submitted Data:", submissionData);
+
+    const { _id, ...rest } = data;
+    const updatedAssignment = {
+      ...rest,
+      status: 'pending',
+      docLink: e.target.docsLink.value,
+      note: e.target.note.value,
+      submittedBy: user.email,
+    };
+
+
+    fetch(`http://localhost:3000/assignments/${_id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedAssignment)
+    })
+      .then(res => res.json())
+      .then(() => {
+        alert('Dock and Note submitted successfully!');
+      });
+
     setShowModal(false);
   };
 
@@ -62,6 +88,7 @@ const ViewAssignment = () => {
                   placeholder="Google Docs Link"
                   className="input input-bordered w-full"
                   value={docLink}
+                  name="docsLink"
                   onChange={(e) => setDocLink(e.target.value)}
                   required
                 />
@@ -69,6 +96,7 @@ const ViewAssignment = () => {
                   className="textarea textarea-bordered w-full"
                   placeholder="Quick Note"
                   value={note}
+                  name="note"
                   onChange={(e) => setNote(e.target.value)}
                 ></textarea>
                 <div className="modal-action">
