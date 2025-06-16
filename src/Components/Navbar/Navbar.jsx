@@ -7,6 +7,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 const Navbar = () => {
 
     const { user, userSignOut } = use(AuthContext)
+    // console.log(user)
     const navigate = useNavigate()
     const [theme, setTheme] = useState('light');
 
@@ -107,6 +108,7 @@ const Navbar = () => {
                                     <img className='w-[40px] h-[40px] rounded-full' src={user?.photoURL} alt="" />
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content menu  rounded-box z-1 w-30 p-2 shadow-sm">
+                                    <li className='text-xl font-semibold'>{user?.displayName}</li>
                                     <li>
                                         <Link to="/createAssignment">
                                             <button className="relative inline-block px-4 py-2 font-medium group">
@@ -129,22 +131,16 @@ const Navbar = () => {
                             </div>
                             <div>
                                 <Link to="/signin">
-                                    {/* <button onClick={handleSignout} className="relative inline-block px-4 py-2 font-medium group">
-                                        <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                                        <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
-                                        <span className="relative text-black group-hover:text-white">LOGOUT</span>
-                                    </button> */}
-                                    <button onClick={handleSignout}  className="relative  items-center justify-start inline-block px-5 py-3 overflow-hidden font-medium transition-all bg-indigo-600 rounded-full hover:bg-white group">
-                                        <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-full"></span>
-                                        <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:indigo-600">LOGOUT</span>
+                                    <button onClick={handleSignout} className="btn btn-primary">
+                                        LOGOUT
                                     </button>
                                 </Link>
                             </div>
                         </>
                         :
                         <>
-                            <Link to='/signin'><button className='btn '>SignIN</button></Link>
-                            <Link to='/signup'><button className='btn '>SignUp</button></Link>
+                            <Link to='/signin'><button className='btn btn-primary'>SignIN</button></Link>
+                            <Link to='/signup'><button className='btn btn-primary'>SignUp</button></Link>
 
                         </>
                 }

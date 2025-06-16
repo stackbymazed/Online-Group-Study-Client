@@ -53,7 +53,7 @@ const CreateAssignments = () => {
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label"> Date </label>
-                    <DatePicker name='date' className="border w-full h-10  bg-white border-gray-400 rounded-sm" selected={startDate} onChange={(date) => setStartDate(date)} />
+                    <DatePicker name='date' className="border w-full h-10  bg-white border-gray-400 rounded-sm dark:text-white dark:bg-gray-900" selected={startDate} onChange={(date) => setStartDate(date)} />
                 </fieldset>
                 <fieldset className="fieldset bg-base-200 p-4 mx-auto w-full">
                     <label className="label">Marks</label>
