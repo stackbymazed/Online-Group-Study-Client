@@ -10,7 +10,7 @@ const MyAttemptedAssignments = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3000/assignments')
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments`)
             .then(res => res.json())
             .then(data => {
                 setAssignments(data)

@@ -21,7 +21,7 @@ const SingleAssignment = ({ singleAssignmentData, setAssignments, assignments })
             // console.log(result.isConfirmed)
             if (result.isConfirmed) {
                 if (user?.email == email) {
-                    fetch(`http://localhost:3000/assignments/${id}`, {
+                    fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())

@@ -17,7 +17,7 @@ const PendingAssignments = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3000/assignments')
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments`)
             .then(res => res.json())
             .then(data => {
                 setAssignments(data)
@@ -49,7 +49,7 @@ const PendingAssignments = () => {
         };
 
         if (selectedAssignment.marks >= parseInt(mark) && feedback.length > 10) {
-            fetch(`http://localhost:3000/assignments/${selectedAssignment._id}`, {
+            fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments/${selectedAssignment._id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const PendingAssignments = () => {
 
 
                     // Refresh the assignments
-                    fetch('http://localhost:3000/assignments')
+                    fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments`)
                         .then(res => res.json())
                         .then(data => setAssignments(data));
                     document.getElementById('my_modal_5').close();
@@ -101,8 +101,8 @@ const PendingAssignments = () => {
         </div>
     }
     return (
-        <div className="p-4">
-            <h2 className="text-2xl font-semibold mb-4">Pending Assignments</h2>
+        <div className="p-4 lg:mb-40">
+            <h2 className="text-2xl font-semibold mb-4 flex justify-center items-center">Pending Assignments</h2>
 
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">

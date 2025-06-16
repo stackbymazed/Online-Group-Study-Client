@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { use, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthContext';
-import { useLoaderData, useNavigate } from 'react-router';
+import { Navigate, useLoaderData, useNavigate } from 'react-router';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
@@ -28,7 +28,7 @@ const UpdateAssignment = () => {
 
 
         if (user.email == email) {
-            fetch(`http://localhost:3000/assignments/${_id}`, {
+            fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments/${_id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json"
@@ -59,6 +59,7 @@ const UpdateAssignment = () => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            navigate("/assignments")
         }
 
     }

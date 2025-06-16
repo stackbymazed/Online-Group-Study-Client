@@ -29,7 +29,7 @@ const ViewAssignment = () => {
     };
 
 
-    fetch(`http://localhost:3000/assignments/${_id}`, {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments/${_id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ const ViewAssignment = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 lg:p-4 px-14">
+    <div className="max-w-4xl mx-auto mt-10 lg:p-4 px-14 lg:my-20">
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img
