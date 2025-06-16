@@ -76,19 +76,20 @@ An interactive full-stack web application that enables users to collaborate on a
 
 ## 💡 Tech Stack
 
-| Technology    | Description                  |
-|---------------|------------------------------|
-| React.js      | Frontend framework           |
-| React Router  | Page navigation              |
-| Firebase      | Auth (email & social login)  |
-| Express.js    | Backend framework            |
-| MongoDB       | Database                     |
-| JWT           | Token-based route protection |
-| Tailwind CSS  | UI styling                   |
-| DaisyUI       | UI components                |
-| Framer Motion | Animations                   |
-| React-Datepicker | Due date input           |
-| SweetAlert2   | Alerts & toasts              |
+| 🛠️ Technology      | 🔎 Description                  |
+|---------------------|----------------------------------|
+| ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat) React.js | Frontend framework           |
+| ![Router](https://img.shields.io/badge/-React_Router-CA4245?logo=react-router&logoColor=white&style=flat) React Router | Page navigation              |
+| ![Firebase](https://img.shields.io/badge/-Firebase-FFCA28?logo=firebase&logoColor=white&style=flat) Firebase | Auth (email & social login)  |
+| ![Express](https://img.shields.io/badge/-Express.js-000000?logo=express&logoColor=white&style=flat) Express.js | Backend framework            |
+| ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white&style=flat) MongoDB | Database                     |
+| ![JWT](https://img.shields.io/badge/-JWT-000000?logo=jsonwebtokens&logoColor=white&style=flat) JWT | Token-based route protection |
+| ![Tailwind](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white&style=flat) Tailwind CSS | UI styling                   |
+| ![DaisyUI](https://img.shields.io/badge/-DaisyUI-FF6AC1?logo=daisyui&logoColor=white&style=flat) DaisyUI | UI components                |
+| ![Framer](https://img.shields.io/badge/-Framer_Motion-EF0179?logo=framer&logoColor=white&style=flat) Framer Motion | Animations                   |
+| ![Datepicker](https://img.shields.io/badge/-React_Datepicker-FFB6C1?style=flat) React-Datepicker | Due date input               |
+| ![SweetAlert2](https://img.shields.io/badge/-SweetAlert2-FF5F6D?logo=sweetalert&logoColor=white&style=flat) SweetAlert2 | Alerts & toasts              |
+
 
 ## 🧪 Validation Rules
 
