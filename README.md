@@ -1,12 +1,105 @@
-# React + Vite
+# 📘 Online Group Study Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive full-stack web application that enables users to collaborate on academic assignments with friends. All registered users are friends by default. The app supports assignment creation, submission, peer grading, protected routes, authentication (email/password and Google), and theme toggling.
 
-Currently, two official plugins are available:
+## 🚀 Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [Live Website Link](https://assignment-11-e732e.web.app)
 
-## Expanding the ESLint configuration
+## 🔧 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ User registration and login (Email/Password & Google)
+- 🔐 Protected routes using JWT authentication
+- 📚 Assignment creation with due date and difficulty
+- 🎯 Assignment submission with Google Docs links and notes
+- 📊 Peer grading with feedback and marks
+- 🗂 Filter assignments by difficulty & search by title
+- 🎨 Theme toggling (Light/Dark)
+- 🖼 Interactive UI with Framer Motion animations
+- 📱 Responsive design for all screen sizes
+
+## 🖥️ Pages & Functionalities
+
+### 🔝 Navbar
+- Website name/logo
+- Assignments (public)
+- Conditional Login/Logout
+- User Profile with dropdown
+  - Create Assignment (private)
+  - Pending Assignments (private)
+  - My Attempted Assignments (private)
+
+### 🏠 Home (Public)
+- Hero banner with theme
+- Features section
+- FAQ section
+- Framer Motion animations
+
+### 🔐 Authentication
+- **Login Page**: Email, password, Google login, link to Register
+- **Register Page**: Name, email, password, photo URL, link to Login
+- Password validation: 1 uppercase, 1 lowercase, min 6 chars
+
+### 📝 Create Assignment (Private)
+- Fields: Title, Description, Marks, Difficulty, Due Date, Thumbnail
+- Validation included
+- Success toast on creation
+
+### 📂 Assignments Page (Public)
+- Display all assignments
+- View | Update | Delete buttons
+- Delete allowed only for creator
+- Update pre-fills current data
+
+### 🔍 Filter & Search
+- Filter by difficulty (easy/medium/hard)
+- Search by title (server-side with MongoDB)
+
+### 📄 View Assignment (Private)
+- See full assignment details
+- "Take Assignment" to open submission form
+- Submit Google Docs link and note
+
+### 📥 My Attempted Assignments (Private)
+- Shows all submitted assignments by user
+- Displays: Title, Status, Marks, Feedback
+
+### ⏳ Pending Assignments (Private)
+- Lists all ungraded submissions
+- Allows peer grading
+- Prevents self-marking
+
+## 🛡 JWT Authentication
+- Token created on login and stored in localStorage
+- Token sent with protected requests via Axios interceptors
+- Verifies user on private routes
+
+## 💡 Tech Stack
+
+| Technology    | Description                  |
+|---------------|------------------------------|
+| React.js      | Frontend framework           |
+| React Router  | Page navigation              |
+| Firebase      | Auth (email & social login)  |
+| Express.js    | Backend framework            |
+| MongoDB       | Database                     |
+| JWT           | Token-based route protection |
+| Tailwind CSS  | UI styling                   |
+| DaisyUI       | UI components                |
+| Framer Motion | Animations                   |
+| React-Datepicker | Due date input           |
+| SweetAlert2   | Alerts & toasts              |
+
+## 🧪 Validation Rules
+
+- Password: Min 6 chars, uppercase & lowercase
+- Assignment Description: 20-30 characters minimum
+- Marks field: Numbers only
+- Image URL: Must be valid URL format
+
+## 🌓 Theme Support
+- Toggle light/dark mode
+- Saves preference for the user
+
+## 📁 Folder Structure
+
