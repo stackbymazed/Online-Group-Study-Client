@@ -4,7 +4,7 @@ import { FaHeart, FaRegGrinHearts } from 'react-icons/fa';
 const Testimonials = () => {
   return (
     <div className="py-16 bg-base-100 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Don’t just take our word for it</h2>
+      <h2 className="text-3xl md:text-4xl text-primary font-bold mb-4">Don’t just take our word for it</h2>
       <p className="text-lg text-gray-600 mb-1">
         Studying online in a focus room with friends and strangers is a game-changer for <strong>millions</strong> of students all over the world.
       </p>

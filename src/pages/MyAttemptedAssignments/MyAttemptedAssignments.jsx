@@ -4,6 +4,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 const MyAttemptedAssignments = () => {
     const { user } = useContext(AuthContext);
     const userEmail = user?.email;
+    console.log(user.accessToken)
 
     const [myAssignments, setMyAssignments] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -11,7 +12,11 @@ const MyAttemptedAssignments = () => {
     useEffect(() => {
         if (!userEmail) return;
 
-        fetch(`${import.meta.env.VITE_API_BASE_URL}/my-assignments?email=${userEmail}`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/my-assignments?email=${userEmail}`, {
+            headers:{
+                authorization : `Bearer ${user?.accessToken}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setMyAssignments(data);
