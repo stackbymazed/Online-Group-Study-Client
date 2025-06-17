@@ -4,7 +4,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 const MyAttemptedAssignments = () => {
     const { user } = useContext(AuthContext);
     const userEmail = user?.email;
-    console.log(user.accessToken)
+    // console.log(user.accessToken)
 
     const [myAssignments, setMyAssignments] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ const MyAttemptedAssignments = () => {
                 console.error("Error fetching assignments:", error);
                 setLoading(false);
             });
-    }, [userEmail]);
+    }, [userEmail,user?.accessToken]);
 
     if (loading) {
         return <div className="text-center py-10">
