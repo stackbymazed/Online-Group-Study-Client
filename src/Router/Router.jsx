@@ -58,14 +58,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/assignments/:id",
-                loader: ({params}) => fetch(`http://localhost:3000/assignments/${params.id}`),
+                loader: ({params}) => fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments/${params.id}`),
                 element: <PrivateRoute>
                     <UpdateAssignment></UpdateAssignment>
                 </PrivateRoute>
             },
             {
                 path: "/assignments/view/:id",
-                loader: ({params}) => fetch(`http://localhost:3000/assignments/${params.id}`),
+                loader: ({params}) => fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments/${params.id}`),
                 element: <PrivateRoute>
                     <ViewAssignment></ViewAssignment>
                 </PrivateRoute>

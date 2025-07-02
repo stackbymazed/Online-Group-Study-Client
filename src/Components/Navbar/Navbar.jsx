@@ -35,13 +35,13 @@ const Navbar = () => {
 
     const links = <>
         <NavLink className={({ isActive }) =>
-            isActive ? "underline text-blue-600" : "text-gray-600"
+            isActive ? "underline text-black" : "text-white"
         } to='/'><li className='dark:text-white'>Home</li></NavLink>
         <NavLink className={({ isActive }) =>
-            isActive ? "underline text-blue-600" : "text-gray-600"
+            isActive ? "underline text-black" : "text-white"
         } to="/assignments"><li className='dark:text-white'>Assignments</li></NavLink>
         <NavLink className={({ isActive }) =>
-            isActive ? "underline text-blue-600" : "text-gray-600"
+            isActive ? "underline text-black" : "text-white"
         } to="/pendingAssignments"><li className='dark:text-white'>Pending-Assignments</li></NavLink>
     </>
 
@@ -56,7 +56,7 @@ const Navbar = () => {
             });
     }
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar  shadow-sm sticky top-0 z-50 bg-indigo-800 text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -70,9 +70,9 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl hidden lg:block">
+                <a className="text-xl lg:ml-7 hidden lg:block">
                     {/* <img className='w-[80px] h-[40px] bg-none' src={image} alt="" /> */}
-                    <h1 className='text-3xl font-semibold text-primary'>StudyHub</h1>
+                    <h1 className='text-3xl font-semibold font-black'>StudyHub</h1>
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -104,38 +104,35 @@ const Navbar = () => {
                     user ?
                         <>
                             <div className="dropdown dropdown-hover mr-10">
-                                <div tabIndex={0} >
-                                    <img className='w-[40px] h-[40px] rounded-full' src={user?.photoURL} alt="" />
+                                <div tabIndex={0}>
+                                    <img className='w-[40px] h-[40px] rounded-full' src={user?.photoURL} alt="User" />
                                 </div>
-                                <ul tabIndex={0} className="dropdown-content menu  rounded-box z-1 w-30 p-2 shadow-sm">
+                                <ul tabIndex={0} className="dropdown-content menu rounded-box z-10 w-56 p-2 bg-white dark:bg-gray-800 text-black dark:text-white shadow-sm">
                                     <li className='text-xl font-semibold'>{user?.displayName}</li>
+
                                     <li>
                                         <Link to="/createAssignment">
-                                            <button className="relative inline-block px-4 py-2 font-medium group">
-                                                <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                                                <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
-                                                <span className="relative text-black group-hover:text-white">Create Assignments</span>
-                                            </button>
+                                            <button className="btn btn-primary w-full">Create Assignments</button>
                                         </Link>
                                     </li>
+
                                     <li>
                                         <Link to="/myAssignments">
-                                            <button className="relative inline-block px-4 py-2 font-medium group">
-                                                <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                                                <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
-                                                <span className="relative text-black group-hover:text-white">My Attempted Assignments</span>
-                                            </button>
+                                            <button className="btn btn-primary w-full">My Attempted Assignments</button>
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                             <div>
                                 <Link to="/signin">
-                                    <button onClick={handleSignout} className="btn btn-primary">
-                                        LOGOUT
+                                    <button onClick={handleSignout} className="relative inline-block px-4 py-2 font-medium group">
+                                        <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-indigo-800 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                                        <span className="absolute inset-0 w-full h-full bg-white dark:bg-gray-900 border-2 border-indigo-800 group-hover:bg-indigo-800"></span>
+                                        <span className="relative text-indigo-800 dark:text-white group-hover:text-white">Logout</span>
                                     </button>
                                 </Link>
                             </div>
+
                         </>
                         :
                         <>

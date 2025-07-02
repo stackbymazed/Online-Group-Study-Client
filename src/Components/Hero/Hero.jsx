@@ -10,15 +10,17 @@ const Hero = () => {
                     <motion.img
                         src='https://i.ibb.co/SDN1MKSz/download-14.jpg'
                         lg:animate={{ y: [100, 150, 100] }}
-                        animate={{ y: [0, 100, 0] }}
-                        transition={{ duration: 5, repeat: Infinity, delay: 5 }}
+                        animate={{ y: [0, 50, 0] }}
+                        lg:transition={{ duration: 5, repeat: Infinity, delay: 5 }}
+                        transition={{ duration: 10, repeat: Infinity, delay: 5 }}
                         className="lg:max-w-sm max-w-60 rounded-lg shadow-2xl rounded-t-4xl rounded-br-4xl border-s-8 border-blue-800 border-b-8"
                     />
                     <motion.img
                         src='https://i.ibb.co/HL8jGLQb/images-15.jpg'
                         lg:animate={{ x: [100, 200, 100] }}
-                        animate={{ x: [0, 100, 0] }}
-                        transition={{ duration: 10, repeat: Infinity }}
+                        animate={{ x: [0, 50, 0] }}
+                        lg:transition={{ duration: 10, repeat: Infinity }}
+                        transition={{ duration: 20, repeat: Infinity }}
                         className="lg:max-w-sm max-w-60 rounded-lg shadow-2xl rounded-t-4xl rounded-br-4xl border-s-8 border-blue-800 border-b-8"
                     />
                 </div>
