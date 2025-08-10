@@ -64,7 +64,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-5">
+                        className="menu menu-sm dropdown-content bg-primary  rounded-box z-1 mt-3 w-52 p-2 shadow gap-5">
                         {
                             links
                         }
@@ -72,7 +72,7 @@ const Navbar = () => {
                 </div>
                 <a className="text-xl lg:ml-7 hidden lg:block">
                     {/* <img className='w-[80px] h-[40px] bg-none' src={image} alt="" /> */}
-                    <h1 className='text-3xl font-semibold font-black'>StudyHub</h1>
+                    <h1 className='text-3xl font-semibold text-white'>StudyHub</h1>
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
