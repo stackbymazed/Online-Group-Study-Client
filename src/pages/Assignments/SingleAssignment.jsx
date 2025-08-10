@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { Link } from "react-router";
 
+
+
 const SingleAssignment = ({
   singleAssignmentData,
   setAssignments,
@@ -132,7 +134,7 @@ const SingleAssignment = ({
               className="btn btn-primary btn-sm px-5 py-2 rounded-xl font-semibold text-white hover:bg-indigo-700 bg-indigo-600 transition duration-300"
               aria-label={`View assignment ${title}`}
             >
-              View
+              View  
             </button>
           </Link>
         </div>
