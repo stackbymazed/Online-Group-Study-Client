@@ -1,7 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const Hero = () => {
+  // const handleClick = ()=>{
+  //   <Na
+  // }
   return (
     <section className="bg-gradient-to-r from-indigo-50 via-white to-indigo-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-20 px-6 my-3">
       <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
@@ -20,8 +24,10 @@ const Hero = () => {
             Seamlessly create, submit, and evaluate assignments in one powerful platform.
             Join thousands of learners collaborating smarter every day.
           </p>
-          <button className="btn btn-indigo px-8 py-3 rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition">
+          <button  className="btn btn-indigo px-8 py-3 rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition">
+           <Link to='/assignments'>
             Get Started
+           </Link>
           </button>
         </motion.div>
 

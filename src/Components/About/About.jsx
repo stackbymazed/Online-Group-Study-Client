@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HiCheckCircle } from "react-icons/hi";
+import { Link } from "react-router";
 
 const About = () => {
   return (
@@ -54,7 +55,10 @@ const About = () => {
             className="mt-10 bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-transform text-white px-10 py-3 rounded-lg shadow-lg font-semibold tracking-wide focus:outline-none focus:ring-4 focus:ring-indigo-300"
             aria-label="Get started with AssignHub"
           >
-            Get Started
+            <Link to='/assignments'>
+             Get Started
+            </Link>
+           
           </button>
         </motion.div>
       </div>

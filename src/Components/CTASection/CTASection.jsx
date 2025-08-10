@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const CTASection = () => {
   return (
@@ -20,7 +21,10 @@ const CTASection = () => {
           className="bg-indigo-500 hover:bg-indigo-600 text-white font-medium px-10 py-3 rounded-md shadow-md transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400"
           aria-label="Get started with AssignHub"
         >
-          Get Started Now
+          <Link to='/assignments'>
+            Get Started Now
+          </Link>
+
         </button>
       </motion.div>
     </section>

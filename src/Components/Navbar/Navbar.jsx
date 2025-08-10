@@ -36,13 +36,19 @@ const Navbar = () => {
     const links = <>
         <NavLink className={({ isActive }) =>
             isActive ? "underline text-black" : "text-white"
-        } to='/'><li className='dark:text-white'>Home</li></NavLink>
+        } to='/'>
+            <li className='dark:text-white'>Home</li>
+        </NavLink>
         <NavLink className={({ isActive }) =>
             isActive ? "underline text-black" : "text-white"
-        } to="/assignments"><li className='dark:text-white'>Assignments</li></NavLink>
+        } to="/assignments">
+            <li className='dark:text-white'>Assignments</li>
+        </NavLink>
         <NavLink className={({ isActive }) =>
             isActive ? "underline text-black" : "text-white"
-        } to="/pendingAssignments"><li className='dark:text-white'>Pending-Assignments</li></NavLink>
+        } to="/pendingAssignments">
+            <li className='dark:text-white'>Pending-Assignments</li>
+        </NavLink>
     </>
 
     const handleSignout = () => {
