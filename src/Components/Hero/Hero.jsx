@@ -1,41 +1,54 @@
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
-// import { delay } from 'motion';
 
 const Hero = () => {
-    return (
-        <div className="hero bg-base-200 my-10">
-            <div className="hero-content flex-col lg:flex-row-reverse lg:gap-10">
-                <div className='flex-1'>
-                    <motion.img
-                        src='https://i.ibb.co/SDN1MKSz/download-14.jpg'
-                        lg:animate={{ y: [100, 150, 100] }}
-                        animate={{ y: [0, 50, 0] }}
-                        lg:transition={{ duration: 5, repeat: Infinity, delay: 5 }}
-                        transition={{ duration: 10, repeat: Infinity, delay: 5 }}
-                        className="lg:max-w-sm max-w-60 rounded-lg shadow-2xl rounded-t-4xl rounded-br-4xl border-s-8 border-blue-800 border-b-8"
-                    />
-                    <motion.img
-                        src='https://i.ibb.co/HL8jGLQb/images-15.jpg'
-                        lg:animate={{ x: [100, 200, 100] }}
-                        animate={{ x: [0, 50, 0] }}
-                        lg:transition={{ duration: 10, repeat: Infinity }}
-                        transition={{ duration: 20, repeat: Infinity }}
-                        className="lg:max-w-sm max-w-60 rounded-lg shadow-2xl rounded-t-4xl rounded-br-4xl border-s-8 border-blue-800 border-b-8"
-                    />
-                </div>
-                <div className='flex-1'>
-                    <h1 className="text-5xl font-bold">Study Smarter, Together!</h1>
-                    <p className="py-6">
-                        Welcome to <span className="font-semibold text-primary">StudyHub</span> — the ultimate platform for group study with friends!
-                        Create assignments, submit your work, and review your friends’ progress — all in one place.
-                        Let’s build knowledge, collaboration, and success together!
-                    </p>
-                    <button className="btn btn-primary">Start Learning</button>
-                </div>
-            </div>
+  return (
+    <section className="bg-gradient-to-r from-indigo-50 via-white to-indigo-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-20 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex-1 text-center lg:text-left"
+        >
+          <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+            Empower Your <span className="text-indigo-600">Learning Journey</span> with StudyHub
+          </h1>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+            Seamlessly create, submit, and evaluate assignments in one powerful platform.
+            Join thousands of learners collaborating smarter every day.
+          </p>
+          <button className="btn btn-indigo px-8 py-3 rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition">
+            Get Started
+          </button>
+        </motion.div>
+
+        {/* Images with animations and overlay */}
+        <div className="relative flex-1 max-w-md mx-auto lg:mx-0">
+          {/* First Image - vertical float */}
+          <motion.img
+            src="https://i.ibb.co/SDN1MKSz/download-14.jpg"
+            alt="Study Image 1"
+            className="rounded-lg shadow-2xl border-blue-800 border-b-8 border-l-8"
+            initial={{ y: 0 }}
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Second Image - horizontal float and overlay on first */}
+          <motion.img
+            src="https://i.ibb.co/HL8jGLQb/images-15.jpg"
+            alt="Study Image 2"
+            className="rounded-lg shadow-2xl border-blue-800 border-b-8 border-l-8 absolute top-20 left-16 w-64"
+            initial={{ x: 0 }}
+            animate={{ x: [0, 20, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default Hero;
