@@ -44,8 +44,6 @@ const Assignments = () => {
         return (
             <div className="text-center py-10">
                 <span className="loading loading-spinner text-primary"></span>
-                <span className="loading loading-spinner text-primary"></span>
-                <span className="loading loading-spinner text-primary"></span>
             </div>
         );
     }
