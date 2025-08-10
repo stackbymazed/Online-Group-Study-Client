@@ -4,6 +4,7 @@ import { Slide } from 'react-awesome-reveal';
 
 const Testimonials = () => {
   return (
+    
     <div className="bg-gradient-to-r from-indigo-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-24 px-6">
       <h2 className="text-3xl md:text-4xl text-primary font-bold mb-4 mx-auto justify-center items-center flex">
         Don’t just take our word for it
